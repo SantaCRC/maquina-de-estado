@@ -10,8 +10,6 @@ module tt_um_fsm #( parameter MAX_COUNT = 24'd10_000_000 ) (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-
-    wire reset = ! rst_n;
     reg [7:0] led_out;
     assign uo_out[7:0] = led_out;
     // use bidirectionals as outputs
@@ -28,7 +26,7 @@ module tt_um_fsm #( parameter MAX_COUNT = 24'd10_000_000 ) (
     reg [2:0] state_reg;
     // FSM next state logic
     always @(posedge clk or negedge reset) begin
-        if (reset) begin
+        if (!rst_n) begin
             state_reg <= S_IDLE;
         end else begin
             case (state_reg)
