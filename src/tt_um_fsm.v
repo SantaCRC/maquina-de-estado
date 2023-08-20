@@ -14,6 +14,7 @@ module tt_um_fsm #( parameter MAX_COUNT = 24'd10_000_000 ) (
     wire reset = ! rst_n;
     reg [7:0] led_out;
     assign uo_out[7:0] = led_out;
+    assign uio_out[7:0] = led_out;
     // use bidirectionals as outputs
     assign uio_oe = 8'b11111111;
     reg [7:0] counter = 8'd0;
