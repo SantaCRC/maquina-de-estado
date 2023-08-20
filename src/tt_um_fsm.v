@@ -37,7 +37,6 @@ module tt_um_fsm #( parameter MAX_COUNT = 24'd10_000_000 ) (
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             current_state <= IDLE;
-            counter <= 4'b0000;
             done <= 1'b0;
         end else begin
             current_state <= next_state;
