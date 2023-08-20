@@ -16,7 +16,7 @@ module tt_um_fsm #( parameter MAX_COUNT = 24'd10_000_000 ) (
     assign uo_out[7:0] = led_out;
     // use bidirectionals as outputs
     assign uio_oe = 8'b11111111;
-    reg [7:0] counter = 8'd0;
+    reg [7:0] counter <= 8'd0;
 
     // FSM states
     localparam [2:0] S_IDLE = 3'b000;
@@ -72,7 +72,7 @@ module tt_um_fsm #( parameter MAX_COUNT = 24'd10_000_000 ) (
     always @(posedge clk or negedge clk) begin
         case (state_reg)
             S_IDLE: begin
-                counter = 0;
+                counter <= 0;
                 led_out = 8'd0;
             end
             S_COUNT: begin
