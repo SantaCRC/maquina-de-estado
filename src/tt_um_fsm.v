@@ -25,7 +25,7 @@ module tt_um_fsm #( parameter MAX_COUNT = 24'd10_000_000 ) (
     localparam [2:0] S_DONE  = 3'b011;
 
     // FSM state register
-    reg [2:0] state_reg;
+    reg [2:0] state_reg = 3'd0;
     // FSM next state logic
     always @(posedge clk or negedge reset) begin
         if (reset) begin
