@@ -27,7 +27,7 @@ module tt_um_fsm #( parameter MAX_COUNT = 24'd10_000_000 ) (
     // FSM state register
     reg [2:0] state_reg = 3'd0;
     // FSM next state logic
-    always @(posedge clk or negedge reset) begin
+    always @(posedge clk) begin
         if (reset) begin
             state_reg <= S_IDLE;
         end else begin
