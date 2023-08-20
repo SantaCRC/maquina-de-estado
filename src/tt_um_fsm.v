@@ -68,7 +68,7 @@ module tt_um_fsm #( parameter MAX_COUNT = 24'd10_000_000 ) (
     end
 
     // FSM output logic
-    always @(posedge clk or negedge clk) begin
+    always @(posedge clk) begin
         case (state_reg)
             S_IDLE: begin
                 counter <= 0;
