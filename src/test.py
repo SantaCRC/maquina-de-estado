@@ -23,8 +23,8 @@ async def test_fsm(dut):
     
     # Check if is gate level test
     try:
-        dut._log.info("Pre-Sythnesis test")
         dut.tt_um_fsm.current_state.value
+        dut._log.info("Pre-Sythnesis test")
     except:
         dut._log.info("Gate level test")
         gate_level_test = True
@@ -53,7 +53,7 @@ async def test_fsm(dut):
             await RisingEdge(dut.clk) 
             await RisingEdge(dut.clk)
             output = dut.salida.value
-            dut._log.info("Value: %d", dut.salida.value)
+            dut._log.info(f"Value: {dut.salida.value}")
 
     
     
